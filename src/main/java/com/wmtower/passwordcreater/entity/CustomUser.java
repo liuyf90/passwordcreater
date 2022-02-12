@@ -8,12 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 /**
  * @author liuyf90
  **/
 @Entity
 @Table(name="user")
-public class CustomUser implements Serializable{
+public class CustomUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,15 +22,15 @@ public class CustomUser implements Serializable{
     private String name;
     @Column
     private String password;
-   public CustomUser(){
- 
-   }
+    public CustomUser(){
 
-public  CustomUser(Long id ,String name ,String password){
-    this.id=id;
-    this.name=name;
-    this.password=password;
-}
+    }
+
+    public  CustomUser(Long id ,String name ,String password){
+        this.id=id;
+        this.name=name;
+        this.password=password;
+    }
 
     public void setId(Long id){
         this.id=id;
@@ -49,4 +50,8 @@ public  CustomUser(Long id ,String name ,String password){
     public String getPassword(){
         return this.password;
     }
+    @Override
+	public String toString() {
+		return "CustomUser [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
 }

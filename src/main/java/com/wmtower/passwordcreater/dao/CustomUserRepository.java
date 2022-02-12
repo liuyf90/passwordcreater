@@ -10,3 +10,4 @@ extends JpaRepository<CustomUser,Long>,JpaSpecificationExecutor<CustomUser> {
     CustomUser findCustomUserByName(String name);
 
  }
+

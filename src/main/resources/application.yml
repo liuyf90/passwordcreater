@@ -10,7 +10,7 @@ spring:
     content-type: text/html
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver 
-    url: jdbc:mysql://10.211.55.4:3306/passowordcreater?useSSL=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    url: jdbc:mysql://localhost:3306/passowordcreater?useSSL=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
     username: root
     password: 123456 
     hikari:
