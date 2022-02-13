@@ -1,5 +1,4 @@
 package com.wmtower.passwordcreater.entity;
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
