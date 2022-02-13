@@ -10,14 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author liuyf90
  **/
 @SpringBootApplication
-@EnableJpaRepositories
-@Controller
 public class PasswordcreaterApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PasswordcreaterApplication.class, args);
 	}
-        @RequestMapping("/login")
-        public String login() {
-            return "index";
-        }
 }

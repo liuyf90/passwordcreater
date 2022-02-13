@@ -20,7 +20,7 @@ spring:
       connection-test-query: select 1 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
 management:
   port: 9001

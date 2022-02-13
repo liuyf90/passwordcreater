@@ -1,4 +1,5 @@
 package com.wmtower.passwordcreater;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -7,22 +8,23 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @author liuyf90
  * 2022-02-08
  */
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    
-    // @formatter:off
-	@Override
+    @Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-                    .authorizeRequests((authorize) -> authorize
-                            .antMatchers("/css/**", "/index").permitAll()
-                            .antMatchers("/user/**").hasRole("USER")
-                            )
-                    .formLogin((formLogin) -> formLogin
-                            .loginPage("/login")
-                            .failureUrl("/login-error")
-                            );
-        }
+			.authorizeRequests()
+				.antMatchers("/css/**").permitAll()
+				.anyRequest().authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				.permitAll()
+				.and()
+			.logout()
+				.permitAll();
+	}
         // @formatter:on
 
     //@Bean
