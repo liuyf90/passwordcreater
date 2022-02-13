@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @SpringBootApplication
 @EnableJpaRepositories
 @Controller
-@EnableJpaAuditing
 public class PasswordcreaterApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PasswordcreaterApplication.class, args);

@@ -10,7 +10,7 @@ spring:
     content-type: text/html
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver 
-    url: jdbc:mysql://localhost:3306/passowordcreater?useSSL=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    url: jdbc:mysql://localhost:3306/passwordcreater
     username: root
     password: 123456 
     hikari:
@@ -18,12 +18,10 @@ spring:
       minimum-idle: 0 #允许的最小空闲属
       idle-timeout: 180000 
       connection-test-query: select 1 
-      jpa:
-        database: mysql
-        hibernate:
-        ddl-auto: create
-          # ddl-auto: update
-        show-sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
 management:
   port: 9001
   security:
