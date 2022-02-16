@@ -1,10 +1,11 @@
 package com.wmtower.passwordcreater;
-import com.wmtower.passwordcreater.dao.CustomUserRepository;
-import com.wmtower.passwordcreater.entity.CustomUser;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import com.wmtower.passwordcreater.dao.CustomUserRepository;
+import com.wmtower.passwordcreater.entity.CustomUser;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,25 +21,25 @@ public class CustomUserRepositoryUserDetailsService implements UserDetailsServic
 
 	private final CustomUserRepository userRepository;
 
-	public CustomUserRepositoryUserDetailsService(CustomUserRepository userRepository) {
+	public CustomUserRepositoryUserDetailsService(final CustomUserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		CustomUser customUser = this.userRepository.findCustomUserByName(username);
+	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+		final CustomUser customUser = this.userRepository.findCustomUserByName(username);
 		if (customUser == null) {
 			throw new UsernameNotFoundException("username " + username + " is not found");
 		}
 		return new CustomUserDetails(customUser);
 	}
+        
 
 	static final class CustomUserDetails extends CustomUser implements UserDetails {
 
 		private static final List<GrantedAuthority> ROLE_USER = Collections
 				.unmodifiableList(AuthorityUtils.createAuthorityList("ROLE_USER"));
 
-		CustomUserDetails(CustomUser customUser) {
+		CustomUserDetails(final CustomUser customUser) {
 			super(customUser.getId(), customUser.getName(), customUser.getPassword());
 		}
 
