@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 /**
  * @author liuyf90
  **/
@@ -21,25 +22,25 @@ public class CustomUserRepositoryUserDetailsService implements UserDetailsServic
 
 	private final CustomUserRepository userRepository;
 
-	public CustomUserRepositoryUserDetailsService(final CustomUserRepository userRepository) {
+	public CustomUserRepositoryUserDetailsService(CustomUserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
+
 	@Override
-	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-		final CustomUser customUser = this.userRepository.findCustomUserByName(username);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		CustomUser customUser = this.userRepository.findCustomUserByName(username);
 		if (customUser == null) {
 			throw new UsernameNotFoundException("username " + username + " is not found");
 		}
 		return new CustomUserDetails(customUser);
 	}
-        
 
 	static final class CustomUserDetails extends CustomUser implements UserDetails {
 
 		private static final List<GrantedAuthority> ROLE_USER = Collections
 				.unmodifiableList(AuthorityUtils.createAuthorityList("ROLE_USER"));
 
-		CustomUserDetails(final CustomUser customUser) {
+		CustomUserDetails(CustomUser customUser) {
 			super(customUser.getId(), customUser.getName(), customUser.getPassword());
 		}
 

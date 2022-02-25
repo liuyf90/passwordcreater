@@ -31,6 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/assets-login/**","/build/**","/dist/**","/plugins/**").permitAll()
             .anyRequest().authenticated()
             .and()
+            .headers().frameOptions().sameOrigin()
+            .and()
             .formLogin()
             .loginPage("/login")
             .permitAll()
