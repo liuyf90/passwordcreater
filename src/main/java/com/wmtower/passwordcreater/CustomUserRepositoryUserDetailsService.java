@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.wmtower.passwordcreater.dao.CustomUserRepository;
-import com.wmtower.passwordcreater.entity.CustomUser;
+import com.wmtower.passwordcreater.model.entity.CustomUser;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -35,7 +35,7 @@ public class CustomUserRepositoryUserDetailsService implements UserDetailsServic
 		return new CustomUserDetails(customUser);
 	}
 
-	static final class CustomUserDetails extends CustomUser implements UserDetails {
+	static final class CustomUserDetails extends CustomUser implements UserDetails {//{{{
 
 		private static final List<GrantedAuthority> ROLE_USER = Collections
 				.unmodifiableList(AuthorityUtils.createAuthorityList("ROLE_USER"));
@@ -74,6 +74,6 @@ public class CustomUserRepositoryUserDetailsService implements UserDetailsServic
 			return true;
 		}
 
-	}
+	}//}}}
 
 }

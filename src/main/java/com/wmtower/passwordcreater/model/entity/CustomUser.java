@@ -1,4 +1,4 @@
-package com.wmtower.passwordcreater.entity;
+package com.wmtower.passwordcreater.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

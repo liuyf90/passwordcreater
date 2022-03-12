@@ -26,3 +26,4 @@ management:
   port: 9001
   security:
     enabled: false
+      

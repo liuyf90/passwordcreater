@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
-    <head th:replace="snippet/header::head"></head>
-    <body class="hold-transition sidebar-mini layout-fixed">
-        <div class="wrapper">
-            <!-- 搜索栏-->
-            <nav th:replace="snippet/narbar::nav"></nav>
-            <!-- Main Sidebar Container -->
-            <div th:replace="snippet/menus::sidebar"></div>
-
+<div th:replace="front"></div>
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div th:replace="snippet/content-header::header"></div>
                 <!-- Main content -->
+                <div class="content px-2">
+                    <h4>Can AdminLTE be used with Wordpress?</h4>
+                    <p>AdminLTE is an HTML template that can be used for any purpose. However, it is not made to be easily installed on Wordpress. It will require some effort and enough knowledge of the Wordpress script to do so.</p>
+                    <h4>Is there an integration guide for PHP frameworks such as Yii or Symfony?</h4>
+                    <p>Short answer, no. However, there are forks and tutorials around the web that provide info on how to integrate with many different frameworks. There are even versions of AdminLTE that are integrated with jQuery ajax, AngularJS and/or MVC5 ASP .NET.</p>
 
+                </div>
             </div>
             <!-- /.content-wrapper -->
-            <!--底部描述-->
-            <footer th:replace="snippet/footer::footer"></footer>
-
-            <!-- Control Sidebar -->
-            <div th:replace="snippet/footer::control-sidebar"></div>
-            <!-- /.control-sidebar -->
-        </div>
-        <!-- ./wrapper -->
-        <div th:replace="snippet/footer :: script"></div>
-    </body>
-</html>
+<div th:replace="back"></div>
