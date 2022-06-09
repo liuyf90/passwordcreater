@@ -35,6 +35,10 @@ public class CustomUserRepositoryUserDetailsService implements UserDetailsServic
 		return new CustomUserDetails(customUser);
 	}
 
+        /**
+         * zo 打开折叠
+         * zc 关闭折叠
+         **/
 	static final class CustomUserDetails extends CustomUser implements UserDetails {//{{{
 
 		private static final List<GrantedAuthority> ROLE_USER = Collections
